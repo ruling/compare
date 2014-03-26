@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="empty_subject_strings">
+        <item>无主题</item>
+    </string-array>
+    <string-array name="pref_templates_gestures_sensitivity_entries">
+        <item>1 (最宽松)</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+        <item>7</item>
+        <item>8</item>
+        <item>9</item>
+        <item>10</item>
+        <item>11</item>
+        <item>12 (最严谨)</item>
+    </string-array>
+    <string-array name="pref_mms_notification_vibrate_pattern_entries">
+        <item>正常</item>
+        <item>中等震动</item>
+        <item>长期震动</item>
+        <item>多次震动 (短促)</item>
+        <item>多次震动 (长期)</item>
+    </string-array>
+    <string-array name="select_dialog_items">
+        <item>1 秒</item>
+        <item>2 秒</item>
+        <item>3 秒</item>
+        <item>4 秒</item>
+        <item>5 秒</item>
+        <item>6 秒</item>
+        <item>7 秒</item>
+        <item>8 秒</item>
+        <item>9 秒</item>
+        <item>10 秒</item>
+        <item>其他</item>
+    </string-array>
+</resources>

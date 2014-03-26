@@ -1,0 +1,14 @@
+#!/system/bin/sh
+# Enable journal data_writeback for /system, /data and /cache EXT4 partitions
+
+tune2fs -o journal_data_writeback /block/path/to/system
+tune2fs -O ^has_journal /block/path/to/system
+tune2fs -o journal_data_writeback /block/path/to/cache
+tune2fs -O ^has_journal /block/path/to/cache
+tune2fs -o journal_data_writeback /block/path/to/data
+tune2fs -O ^has_journal /block/path/to/data
+
+busybox mount -o remount,noatime,noauto_da_alloc,nosuid,nodev,nodiratime,barrier=0,nobh /system
+busybox mount -o remount,noatime,noauto_da_alloc,nosuid,nodev,nodiratime,barrier=0,nobh /data
+busybox mount -o remount,noatime,noauto_da_alloc,nosuid,nodev,nodiratime,barrier=0,nobh /cache
+echo “2048″ > /sys/devices/virtual/bdi/179:0/read_ahead_kb;
