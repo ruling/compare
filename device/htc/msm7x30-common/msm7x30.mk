@@ -59,8 +59,14 @@ PRODUCT_PACKAGES += \
 
 # adb hack
 PRODUCT_COPY_FILES += \
-	$(COMMON_PATH)/rootdir/system/etc/init.d/20fixup:system/etc/init.d/20fixup
-
+	$(COMMON_PATH)/rootdir/system/etc/init.d/20fixup:system/etc/init.d/02KernelTweak \
+	$(COMMON_PATH)/rootdir/system/etc/init.d/20fixup:system/etc/init.d/03BatteryTweak \
+	$(COMMON_PATH)/rootdir/system/etc/init.d/20fixup:system/etc/init.d/05netspeed \
+	$(COMMON_PATH)/rootdir/system/etc/init.d/20fixup:system/etc/init.d/06zipalign \
+	$(COMMON_PATH)/rootdir/system/etc/init.d/20fixup:system/etc/init.d/20fixup \
+	$(COMMON_PATH)/rootdir/system/etc/init.d/20fixup:system/etc/init.d/50selinuxrelabel \
+	$(COMMON_PATH)/rootdir/system/etc/init.d/20fixup:system/etc/init.d/80ext4_tune_up \
+	$(COMMON_PATH)/rootdir/system/etc/init.d/20fixup:system/etc/init.d/90zram
 # Audio
 PRODUCT_PACKAGES += \
 	audio.a2dp.default \
@@ -117,8 +123,8 @@ PRODUCT_TAGS += dalvik.gc.type-precise
 PRODUCT_PROPERTY_OVERRIDES += \
 	wifi.supplicant_scan_interval=15 \
 	ro.com.google.locationfeatures=1 \
-	ro.product.locale.language=en \
-	ro.product.locale.region=US \
+	ro.product.locale.language=zh \
+	ro.product.locale.region=CN \
 	ro.use_data_netmgrd=true \
 	ro.tethering.kb_disconnect=1
 

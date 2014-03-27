@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- Copyright (C) 2012-2013 The CyanogenMod Project
+<!--
+     Copyright (C) 2012-2014 The CyanogenMod Project
 
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
@@ -567,6 +568,13 @@
     <string name="title_quick_access_linked">连接布局</string>
     <string name="summary_quick_access_linked">使用与快速设置面板中相同的按钮和布局</string>
     <string name="font_size_sample">示例</string>
+    <string name="wifi_mode">模式</string>
+    <string name="wifi_mode_ibss">Ad Hoc网络（IBSS）</string>
+    <string name="wifi_mode_ibss_short">Ad-Hoc</string>
+    <string name="wifi_ibss_freq_title">频道/频率</string>
+    <string name="wifi_channel">频道</string>
+    <string name="wifi_mhz">MHz</string>    
+    
     <!-- show network speed -->
     <string name="show_network_speed_title">网速显示</string>
     <string name="show_network_speed_summary">在状态栏显示网络速度</string>

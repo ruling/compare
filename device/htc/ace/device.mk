@@ -32,6 +32,7 @@ COMMON_PATH := device/htc/ace
 PRODUCT_COPY_FILES += \
 	$(COMMON_PATH)/ramdisk/fstab.spade:root/fstab.spade \
 	$(COMMON_PATH)/ramdisk/init.spade.rc:root/init.spade.rc \
+	$(COMMON_PATH)/ramdisk/init.rc:root/init.rc \
 	$(COMMON_PATH)/ramdisk/ueventd.spade.rc:root/ueventd.spade.rc
 
 # GPS config
@@ -144,15 +145,15 @@ else
 TARGET_UNOFFICIAL_BUILD_ID := ODEXED
 endif
 PRODUCT_PROPERTY_OVERRIDES += \
-	ro.goo.rom=MustaKitkatNightlyOdexed
+	ro.goo.rom=RulingNightlyOdexed
 else
 PRODUCT_PROPERTY_OVERRIDES += \
-	ro.goo.rom=MustaKitkatNightly
+	ro.goo.rom=RulingNightly
 endif
 
 # The rest of goo.im props
 PRODUCT_PROPERTY_OVERRIDES += \
-	ro.goo.developerid=Mustaavalkosta \
+	ro.goo.developerid=Ruling \
 	ro.goo.version=$(shell date -u +%Y%m%d)
 
 # call the proprietary setup
