@@ -25,6 +25,7 @@ import android.preference.Preference.OnPreferenceChangeListener;
 import android.preference.PreferenceScreen;
 import android.provider.Settings;
 import android.provider.Settings.SettingNotFoundException;
+import android.telephony.MSimTelephonyManager;
 
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
@@ -35,7 +36,7 @@ public class StatusBar extends SettingsPreferenceFragment implements OnPreferenc
     private static final String STATUS_BAR_BATTERY = "status_bar_battery";
     private static final String STATUS_BAR_SIGNAL = "status_bar_signal";
     private static final String STATUS_BAR_TRAFFIC = "status_bar_traffic";
-	
+
     private static final String STATUS_BAR_BATTERY_SHOW_PERCENT = "status_bar_battery_show_percent";
 
     private static final String STATUS_BAR_STYLE_HIDDEN = "4";
@@ -44,7 +45,7 @@ public class StatusBar extends SettingsPreferenceFragment implements OnPreferenc
     private ListPreference mStatusBarBattery;
     private SystemSettingCheckBoxPreference mStatusBarBatteryShowPercent;
     private ListPreference mStatusBarCmSignal;
-	private CheckBoxPreference mStatusBarTraffic;
+    private CheckBoxPreference mStatusBarTraffic;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -55,10 +56,11 @@ public class StatusBar extends SettingsPreferenceFragment implements OnPreferenc
         PreferenceScreen prefSet = getPreferenceScreen();
         ContentResolver resolver = getActivity().getContentResolver();
 
-		mStatusBarTraffic = (CheckBoxPreference) findPreference(STATUS_BAR_TRAFFIC);
+
+        mStatusBarTraffic = (CheckBoxPreference) findPreference(STATUS_BAR_TRAFFIC);
         mStatusBarTraffic.setChecked((Settings.System.getInt(resolver, Settings.System.STATUS_BAR_TRAFFIC, 0) == 1));
         mStatusBarTraffic.setOnPreferenceChangeListener(this);
-		
+
         mStatusBarBattery = (ListPreference) findPreference(STATUS_BAR_BATTERY);
         mStatusBarBatteryShowPercent =
                 (SystemSettingCheckBoxPreference) findPreference(STATUS_BAR_BATTERY_SHOW_PERCENT);
@@ -87,7 +89,8 @@ public class StatusBar extends SettingsPreferenceFragment implements OnPreferenc
         mStatusBarCmSignal.setSummary(mStatusBarCmSignal.getEntry());
         mStatusBarCmSignal.setOnPreferenceChangeListener(this);
 
-        if (Utils.isWifiOnly(getActivity())) {
+        if (Utils.isWifiOnly(getActivity())
+                || (MSimTelephonyManager.getDefault().isMultiSimEnabled())) {
             prefSet.removePreference(mStatusBarCmSignal);
         }
 
@@ -105,7 +108,7 @@ public class StatusBar extends SettingsPreferenceFragment implements OnPreferenc
 
             enableStatusBarBatteryDependents((String)newValue);
             return true;
-        } 
+                }
 		else if (preference == mStatusBarTraffic) {
             boolean value = (Boolean) newValue;
             Settings.System.putInt(resolver, Settings.System.STATUS_BAR_TRAFFIC, value ? 1 : 0);

@@ -65,5 +65,4 @@
         android:title="@string/show_network_speed_title"
         android:summary="@string/show_network_speed_summary"
         android:defaultValue="false" />
-
 </PreferenceScreen>
